@@ -2,6 +2,7 @@ package br.com.alura.forum.config.validacao;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -20,7 +21,7 @@ public class ErroDeValidacaoHandler {
 	
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
 	@ExceptionHandler(MethodArgumentNotValidException.class)
-	public List<ErroDeFormularioDto> handle(MethodArgumentNotValidException exception){
+	public List<ErroDeFormularioDto> handle(MethodArgumentNotValidException exception) {
 		List<ErroDeFormularioDto> dto = new ArrayList<>();
 		
 		List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors();
